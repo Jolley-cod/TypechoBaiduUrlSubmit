@@ -1,2 +1,57 @@
-# TypechoBaiduUrlSubmit
-Typecho Plugin for Baidu URL Submission（自动向百度提交文章链接的Typecho插件）
+
+# Typecho-Baidu-Url-Submit
+Typecho 插件：自动将文章/页面链接提交到百度搜索资源平台，提升内容收录效率，无需手动操作。
+
+
+
+# 插件功能
+- **自动推送**：发布/编辑文章/页面时，自动触发百度链接提交，无需手动复制 URL 到百度平台。
+- **完整日志**：推送结果（成功/失败、剩余配额）记录到 `log.txt`，方便排查问题。
+- **配置简单**：仅需填写百度资源平台的「网站域名」和「推送 Token」，无需复杂设置。
+- **安全兼容**：适配 Typecho 1.2.0+ 版本，支持 HTTP/HTTPS 站点，遵循百度链接提交 API 规范。
+
+
+# 安装步骤
+### 方法 ：手动上传
+1. 下载插件压缩包，解压后重命名文件夹为 `BaiduUrlSubmit`。
+2. 将文件夹上传到 Typecho 站点的 `usr/plugins/` 目录下。
+3. 进入 Typecho 后台 → 「控制台」→ 「插件」，找到「Baidu Url Submit」并点击「启用」。
+
+# 配置方法
+
+1. 在插件列表找到「Baidu Url Submit」，点击「设置」进入配置页：
+    - **网站域名**：填写百度资源平台已验证的域名（例：`https://www.codyz.cn`，需与验证域名完全一致，含 `http/https` 和 `www`）。
+    - **百度推送 Token**：前往 [百度搜索资源平台](https://ziyuan.baidu.com/linksubmit/index) 获取（需先完成网站验证）。
+2. 点击「保存设置」，配置生效。
+
+# 使用说明
+
+- **自动推送触发场景**：
+    - 发布新文章 / 页面时，点击「保存」后自动推送当前内容的链接。
+    - 编辑已有文章 / 页面时，修改后点击「保存」也会重新推送（更新百度索引）。
+- **查看推送结果**：
+    
+    插件目录下的 `log.txt` 文件会记录每次推送日志，示例：
+    ```plaintext
+    [2025-09-27 10:30:00] 推送百度成功 | URL：https://codyz.cn/archives/1183.html | 状态码：200 | 成功数：1 | 剩余配额：8
+    ```
+
+#  更新日志
+
+- **v0.0.1（2025-09-26）**：
+    - 初始版本，实现文章 / 页面自动推送功能。
+    - 支持日志记录和基础错误排查。
+
+# 作者信息
+
+- 作者：Jolley
+- 博客：[https://www.codyz.cn](https://www.codyz.cn/)
+- 仓库：[https://github.com/Jolley-cod/TypechoBaiduUrlSubmit](https://github.com/Jolley-cod/TypechoBaiduUrlSubmit)（欢迎 Star 支持！）
+#  常见问题
+
+1. **推送失败提示「site init fail」**：
+    - 检查「网站域名」是否与百度验证域名完全一致（例：验证的是 `https://codyz.cn`，不要填 `http://codyz.cn` 或 `https://www.codyz.cn`）。
+2. **403 权限错误**：
+    - 确认 Git 推送时使用的账号是仓库所有者或已添加协作者（参考 GitHub 仓库权限设置）。
+3. **443 端口超时**：
+    - 尝试切换 DNS（如阿里云 DNS：223.5.5.5）或改用 SSH 协议推送代码（见 GitHub 仓库说明）。
