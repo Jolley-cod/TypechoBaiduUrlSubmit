@@ -2,6 +2,8 @@
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
 /**
+ * Baidu Url Submit Plugin
+ *
  * 将文章URL推送到百度的链接提交接口
  * @author jolley
  * @package BaiduUrlSubmit
@@ -23,6 +25,16 @@ class BaiduUrlSubmit_Plugin implements Typecho_Plugin_Interface
         Typecho_Plugin::factory('Widget_Contents_Page_Edit')->finishPublish = array('BaiduUrlSubmit_Plugin', 'pushToBaidu');
     }
 
+    /**
+     * 禁用插件方法：无需额外清理操作
+     *
+     * @static
+     * @access public
+     * @return void
+     */
+    public static function deactivate()
+    {
+    }
 
     /**
      * 插件配置面板：添加网站域名和百度Token配置项
@@ -39,7 +51,7 @@ class BaiduUrlSubmit_Plugin implements Typecho_Plugin_Interface
             NULL, 
             NULL, 
             _t('网站域名'), 
-            _t('输入你的网站域名，例如：https://www.test.com（需与百度资源平台验证域名完全一致）')
+            _t('输入你的网站域名，例如：https://www.example.com（需与百度资源平台验证域名完全一致）')
         );
         $form->addInput($site);
         
@@ -54,7 +66,16 @@ class BaiduUrlSubmit_Plugin implements Typecho_Plugin_Interface
         $form->addInput($token);
     }
 
-
+    /**
+     * 个人用户配置面板：无需个人配置
+     *
+     * @access public
+     * @param Typecho_Widget_Helper_Form $form 个人配置面板对象
+     * @return void
+     */
+    public static function personalConfig(Typecho_Widget_Helper_Form $form)
+    {
+    }
 
     /**
      * 推送文章/页面URL到百度链接提交接口
