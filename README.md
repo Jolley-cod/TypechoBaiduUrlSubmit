@@ -20,7 +20,7 @@ Typecho 插件：自动将文章/页面链接提交到百度搜索资源平台�
 # 配置方法
 
 1. 在插件列表找到「Baidu Url Submit」，点击「设置」进入配置页：
-    - **网站域名**：填写百度资源平台已验证的域名（例：`https://www.codyz.cn`，需与验证域名完全一致，含 `http/https` 和 `www`）。
+    - **网站域名**：填写百度资源平台已验证的域名（例：`https://www.0cv.com`，需与验证域名完全一致，含 `http/https` 和 `www`）。
     - **百度推送 Token**：前往 [百度搜索资源平台](https://ziyuan.baidu.com/linksubmit/index) 获取（需先完成网站验证）。
 2. 点击「保存设置」，配置生效。
 
@@ -33,7 +33,7 @@ Typecho 插件：自动将文章/页面链接提交到百度搜索资源平台�
   
     插件目录下的 `log.txt` 文件会记录每次推送日志，示例：
     ```plaintext
-    [2025-09-27 10:30:00] 推送百度成功 | URL：https://codyz.cn/archives/1183.html | 状态码：200 | 成功数：1 | 剩余配额：8
+    [2025-09-27 10:30:00] 推送百度成功 | URL：https://0cv.com/archives/1183.html | 状态码：200 | 成功数：1 | 剩余配额：8
     ```
 
 #  更新日志
@@ -50,12 +50,12 @@ Typecho 插件：自动将文章/页面链接提交到百度搜索资源平台�
 # 作者信息
 
 - 作者：Jolley
-- 博客：[https://www.codyz.cn](https://www.codyz.cn/)
+- 博客：[https://www.0cv.com](https://www.0cv.com/)
 - 仓库：[https://github.com/Jolley-cod/TypechoBaiduUrlSubmit](https://github.com/Jolley-cod/TypechoBaiduUrlSubmit)（欢迎 Star 支持！）
 #  常见问题
 
 1. **推送失败提示「site init fail」**：
-    - 检查「网站域名」是否与百度验证域名完全一致（例：验证的是 `https://codyz.cn`，不要填 `http://codyz.cn` 或 `https://www.codyz.cn`）。
+    - 检查「网站域名」是否与百度验证域名完全一致（例：验证的是 `https://0cv.com`，不要填 `http://0cv.com` 或 `https://www.0cv.com`）。
 2. **403 权限错误**：
     - 确认 Git 推送时使用的账号是仓库所有者或已添加协作者（参考 GitHub 仓库权限设置）。
 3. **443 端口超时**：
